@@ -1,0 +1,109 @@
+EPISODE NUMBER: Episode 5
+EPISODE LOGLINE: Meera enters the sealed cellar of Moti Mahal.
+CONTINUITY NOTES: Meera finds her mother's room and a photograph.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: EXT. MOTI MAHAL, ABANDONED GATE - NIGHT
+Scene start: 00:00.00
+Scene end: 01:04.25
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:03.00)
+Rusted gates of the old Moti Mahal, overgrown with creepers.
+
+**ACTION:**
+Start: (00:03.00) | End: (00:09.50)
+Meera, with Mehrunnisa Begum, uses the iron key on a padlock.
+
+**SOUND FX:**
+Start: (00:09.50) | End: (00:12.50)
+The lock clanks open.
+
+**MEHRUNNISA (Whispering):**
+Start: (00:12.50) | End: (00:21.40)
+"Your mother trusted me, Meera. Not a soul knows I am here."
+
+**MEERA (Resolute):**
+Start: (00:21.40) | End: (00:30.75)
+"I have no one left to trust, Begum Sahiba. So I trust you."
+
+**ACTION:**
+Start: (00:30.75) | End: (00:37.25)
+They descend stone steps with a lantern. Dust swirls in the light.
+
+**CAMERA:**
+Start: (00:37.25) | End: (00:40.25)
+A heavy door at the end, carved with a peacock.
+
+**ACTION:**
+Start: (00:40.25) | End: (00:46.75)
+The second key, hidden inside the peacock's eye, turns.
+
+**SOUND FX:**
+Start: (00:46.75) | End: (00:49.75)
+An ancient hinge groans open.
+
+**ACTION:**
+Start: (00:49.75) | End: (00:56.25)
+Inside: a bed, a clay lamp, a locked trunk and a wall of scratched dates.
+
+**MEERA (Breaking):**
+Start: (00:56.25) | End: (01:04.25)
+"Someone lived here. For years. Look at the calendar marks."
+
+SCENE 02
+Scene heading: INT. MOTI MAHAL, CELLAR - NIGHT
+Scene start: 01:04.25
+Scene end: 02:11.90
+
+Actions and dialogue:
+
+**ACTION:**
+Start: (01:04.25) | End: (01:10.75)
+She opens the trunk. Mother's bangles, letters, and a framed photo of a woman in a red saree.
+
+**MEERA (Whispering, Tearful):**
+Start: (01:10.75) | End: (01:19.20)
+"Maa. This is Maa's handwriting. She wrote to me every year."
+
+**MEHRUNNISA (Hushed):**
+Start: (01:19.20) | End: (01:27.65)
+"Because Bhanu Shekhawat locked her here the day your father signed."
+
+**CAMERA:**
+Start: (01:27.65) | End: (01:30.65)
+Close on Meera reading the last letter.
+
+**ACTION:**
+Start: (01:30.65) | End: (01:37.15)
+The last letter is dated this month. Ink still shiny.
+
+**MEERA (Shaking):**
+Start: (01:37.15) | End: (01:44.25)
+"This month? It means she is still alive!"
+
+**SOUND FX:**
+Start: (01:44.25) | End: (01:47.25)
+Distant footsteps above, many, running.
+
+**MEHRUNNISA (Panicked):**
+Start: (01:47.25) | End: (01:55.25)
+"They followed us. Meera, there is only one way out!"
+
+**ACTION:**
+Start: (01:55.25) | End: (02:01.75)
+A figure in white appears behind the iron grill, face half in shadow. A hoarse voice speaks.
+
+**WOMAN IN WHITE (Trembling, Frail):**
+Start: (02:01.75) | End: (02:07.95)
+"Meera? Is that my little Meera?"
+
+**MEERA (Shocked):**
+Start: (02:07.95) | End: (02:11.90)
+"Maa?!"
+
+--- SCRIPT END ---

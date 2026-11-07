@@ -1,0 +1,10 @@
+anthropic
+openai
+pydantic
+pandas
+streamlit
+scenedetect
+opencv-python-headless
+python-dotenv
+rapidfuzz
+google-play-scraper

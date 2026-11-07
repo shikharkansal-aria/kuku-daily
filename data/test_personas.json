@@ -1,0 +1,22 @@
+[
+  {"id": "p01-homemaker-kanpur", "tier": "free", "language": "hinglish",
+   "answers": ["Main housewife hoon, Kanpur se, 42 saal", "Dopahar 2 baje aur raat 10 baje", "Saas bahu wali, family drama, jisme bahu apna haq le", "Gande scenes ya zyada maar-peet nahi", "Kabhi kabhi saas ke saath"]},
+  {"id": "p02-student-indore", "tier": "free", "language": "hinglish",
+   "answers": ["College mein hoon, second year, Indore", "Raat 11 baje ke baad", "Thriller, twist wali, revenge", "Rona dhona wala romance nahi", "Akele, phone pe"]},
+  {"id": "p03-banker-pune", "tier": "subscriber", "language": "english",
+   "answers": ["I work in a bank in Pune, I am 29", "On the metro at 8:30 am and after dinner around 10 pm", "Romance with a strong heroine, hidden identity stories", "Mafia and violence", "Alone"]},
+  {"id": "p04-shopkeeper-village", "tier": "free", "language": "hinglish",
+   "answers": ["Gaon mein dukaan chalata hoon, 24 saal", "Shaam 7 baje dukaan band karke", "Action, revenge, gareeb ladka ameer banta hai", "Love story wali bakwas nahi", "Akele"]},
+  {"id": "p05-retired-lucknow", "tier": "free", "language": "english",
+   "answers": ["I am a retired teacher, 63, from Lucknow", "Mornings around 10 am", "Family stories and mysteries", "Nothing vulgar", "With my wife"]},
+  {"id": "p06-quick-student", "tier": "free",
+   "quick": {"who": "college student", "likes": ["romance", "royal/historical"], "slots": ["21:30"], "language": "english", "watch_with": "alone"}},
+  {"id": "p07-quick-homemaker", "tier": "subscriber",
+   "quick": {"who": "homemaker", "likes": ["family drama", "betrayal", "revenge"], "dislikes": ["fantasy"], "slots": ["14:00"], "language": "hinglish", "watch_with": "family"}},
+  {"id": "p08-engineer-bangalore", "tier": "free", "language": "english",
+   "answers": ["Software engineer in Bangalore, 31", "Lunch break, 1:30 pm", "Fantasy, werewolf stuff", "Saas bahu", "Alone"]},
+  {"id": "p09-edge-gibberish", "tier": "free", "language": "hinglish",
+   "answers": ["asdf", "kuch nahi", "pata nahi", "???", "..."]},
+  {"id": "p10-edge-conflict", "tier": "free", "language": "english",
+   "answers": ["I like revenge stories", "anytime", "revenge and romance", "I hate revenge", "family"]}
+]

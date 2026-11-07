@@ -1,0 +1,102 @@
+[
+  {
+    "id": "kuku-a-pot-that-changes-everything",
+    "title": "A Pot That Changes Everything",
+    "platform": "Kuku TV",
+    "language": ["hindi"],
+    "tags": ["family drama", "fantasy", "romance"],
+    "logline": "An ancient pot pulls a young man into a family rivalry, a forbidden romance and a fight over buried secrets.",
+    "family_safe": true,
+    "source_url": "https://apps.apple.com/IN/app/id6737497276"
+  },
+  {
+    "id": "kuku-taxi-drivers-hidden-identity",
+    "title": "Taxi Driver's Hidden Identity",
+    "platform": "Kuku TV",
+    "language": ["hindi"],
+    "tags": ["action", "hidden identity", "thriller"],
+    "logline": "A retired commando drives a taxi under a false life and must fight again to protect his son.",
+    "family_safe": true,
+    "source_url": "https://apps.apple.com/IN/app/id6737497276"
+  },
+  {
+    "id": "kuku-saas-bahu-reloaded",
+    "title": "Saas Bahu Reloaded",
+    "platform": "Kuku TV",
+    "language": ["hindi"],
+    "tags": ["saas-bahu", "family drama"],
+    "logline": "A young wife's small everyday choices set off power struggles inside a joint household.",
+    "family_safe": true,
+    "source_url": "https://mediabrief.com/the-mediabrief-micro-drama-viewers-guide-10-platforms-120-synopses/"
+  },
+  {
+    "id": "kuku-masoom-dhokha",
+    "title": "Masoom Dhokha",
+    "platform": "Kuku TV",
+    "language": ["hindi"],
+    "tags": ["thriller", "betrayal"],
+    "logline": "A fiance who seems perfect shows warning signs that only his fiancee's sister notices.",
+    "family_safe": true,
+    "source_url": "https://mediabrief.com/the-mediabrief-micro-drama-viewers-guide-10-platforms-120-synopses/"
+  },
+  {
+    "id": "kuku-pyar-ka-naya-safar",
+    "title": "Pyar Ka Naya Safar",
+    "platform": "Kuku TV",
+    "language": ["hindi"],
+    "tags": ["romance", "hidden identity"],
+    "logline": "A chance meeting grows into a hidden-identity love story after an old family photo resurfaces.",
+    "family_safe": true,
+    "source_url": "https://mediabrief.com/the-mediabrief-micro-drama-viewers-guide-10-platforms-120-synopses/"
+  },
+  {
+    "id": "reelshort-surf-gods-revenge",
+    "title": "Surf God's Revenge",
+    "platform": "ReelShort",
+    "language": ["english"],
+    "tags": ["fantasy", "revenge", "romance"],
+    "logline": "A sea god must stay married to a sea hag's daughter for five years to win back his magic surfboard.",
+    "family_safe": true,
+    "source_url": "https://www.reelshort.com/episodes/episode-1-surf-god-s-revenge-6ad4c0012ea7059aa9045e57-wccjkomuav?play_time=1"
+  },
+  {
+    "id": "reelshort-the-triplets-final-regret",
+    "title": "The Triplets' Final Regret",
+    "platform": "ReelShort",
+    "language": ["english"],
+    "tags": ["fantasy", "romance", "betrayal"],
+    "logline": "A half-vampire girl is repeatedly abandoned by three brothers, then becomes a vampire and leaves them regretting it.",
+    "family_safe": false,
+    "source_url": "https://www.reelshort.com/episodes/episode-1-the-triplets-final-regret-6aafa7fc530d47585a054f74-aqthox3d16?play_time=1"
+  },
+  {
+    "id": "reelshort-the-virgin-sacrifice-who-seduced-a-god",
+    "title": "The Virgin Sacrifice Who Seduced a God",
+    "platform": "ReelShort",
+    "language": ["english"],
+    "tags": ["fantasy", "romance", "betrayal"],
+    "logline": "After her sister seduces her fiance, a young woman is taken to the God of War's realm, where attraction grows.",
+    "family_safe": false,
+    "source_url": "https://www.reelshort.com/episodes/episode-1-the-virgin-sacrifice-who-seduced-a-god-6ad4c0b59bdbb60b8708c215-kwmtu0h2n6?play_time=1"
+  },
+  {
+    "id": "dramabox-love-is-a-dangerous-game",
+    "title": "Love Is A Dangerous Game",
+    "platform": "DramaBox",
+    "language": ["english"],
+    "tags": ["romance", "betrayal"],
+    "logline": "A getaway trip turns risky when a woman's best friend's husband begins pursuing her.",
+    "family_safe": false,
+    "source_url": "https://apps.apple.com/us/app/id6445905219"
+  },
+  {
+    "id": "dramabox-ugly-duckling-hidden-beauty",
+    "title": "Ugly Duckling, Hidden Beauty",
+    "platform": "DramaBox",
+    "language": ["english"],
+    "tags": ["family drama", "hidden identity"],
+    "logline": "A woman with striking looks and a singing voice draws Hollywood's attention while her mocking family has not noticed.",
+    "family_safe": true,
+    "source_url": "https://apps.apple.com/us/app/id6445905219"
+  }
+]

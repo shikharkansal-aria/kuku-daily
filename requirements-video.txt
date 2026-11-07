@@ -1,0 +1,4 @@
+# Heavy, optional. Install only when studying videos: pip install -r requirements-video.txt
+faster-whisper
+whisperx
+easyocr

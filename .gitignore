@@ -1,0 +1,16 @@
+__pycache__/
+.cache/
+.env
+.venv/
+CLAUDE.md
+data/private/
+docs/chunks/
+docs/PROJECT_BRIEF.md
+docs/TASK_BRIEF.md
+graphify-out/
+graphify-out/cache/
+input/
+outputs/
+outputs/phone/
+submission/
+submission/raw_outputs/

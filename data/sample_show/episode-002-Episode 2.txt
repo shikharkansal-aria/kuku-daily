@@ -1,0 +1,101 @@
+EPISODE NUMBER: Episode 2
+EPISODE LOGLINE: Meera reads the note and hides from Dadi Sa.
+CONTINUITY NOTES: The note names a lawyer, Vishwanath Joshi.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. SHEKHAWAT HAVELI, CORRIDOR - NIGHT
+Scene start: 00:00.00
+Scene end: 00:58.70
+
+Actions and dialogue:
+
+**SOUND FX:**
+Start: (00:00.00) | End: (00:03.00)
+The walking stick taps on marble, nearer.
+
+**ACTION:**
+Start: (00:03.00) | End: (00:09.50)
+Meera shoves the paper into her bangle and stands as Dadi Sa turns the corner.
+
+**DADI SA (Suspicious):**
+Start: (00:09.50) | End: (00:16.60)
+"Why are you standing in the dark, Meera?"
+
+**MEERA (Calm, Forced):**
+Start: (00:16.60) | End: (00:24.60)
+"The thunder woke me, Dadi Sa. I came for water."
+
+**CAMERA:**
+Start: (00:24.60) | End: (00:27.60)
+Two faces, a foot apart, lit by a swinging lamp.
+
+**DADI SA (Sharp):**
+Start: (00:27.60) | End: (00:34.25)
+"Haveli walls hear everything, beta. Remember that."
+
+**ACTION:**
+Start: (00:34.25) | End: (00:40.75)
+Dadi Sa leaves. Meera exhales, shaking.
+
+**CAMERA:**
+Start: (00:40.75) | End: (00:43.75)
+Cut to Meera's room. She unrolls the note under a phone torch.
+
+**ACTION:**
+Start: (00:43.75) | End: (00:50.25)
+The note reads: Advocate Vishwanath Joshi, Chandpole. Ask for file Moti Mahal 1998.
+
+**MEERA (Determined):**
+Start: (00:50.25) | End: (00:58.70)
+"Vishwanath Joshi. Baba trusted him. Kal subah, I will find him."
+
+SCENE 02
+Scene heading: INT. MEERA'S ROOM - NIGHT
+Scene start: 00:58.70
+Scene end: 01:56.70
+
+Actions and dialogue:
+
+**SOUND FX:**
+Start: (00:58.70) | End: (01:01.70)
+Her phone buzzes. An unknown number.
+
+**UNKNOWN CALLER (Distorted, Urgent):**
+Start: (01:01.70) | End: (01:10.60)
+"Do not go to Chandpole. Burn the note. They are watching you."
+
+**MEERA (Frightened):**
+Start: (01:10.60) | End: (01:18.60)
+"Who is this? How do you know about the note?"
+
+**ACTION:**
+Start: (01:18.60) | End: (01:25.10)
+The call drops. Meera runs to the window; a car with no lights idles below the haveli gate.
+
+**KARAN (Gentle, Hidden worry):**
+Start: (01:25.10) | End: (01:31.30)
+"Meera? Who were you talking to?"
+
+**ACTION:**
+Start: (01:31.30) | End: (01:37.80)
+Karan stands in the doorway. His eyes drop to her bangle.
+
+**MEERA (Quick, Nervous):**
+Start: (01:37.80) | End: (01:43.55)
+"Mummy ji called. Bas wahi."
+
+**KARAN (Cold, Quiet):**
+Start: (01:43.55) | End: (01:49.30)
+"Show me your bangle, Meera."
+
+**SOUND FX:**
+Start: (01:49.30) | End: (01:52.30)
+Heartbeat thuds.
+
+**MEERA (Terrified):**
+Start: (01:52.30) | End: (01:56.70)
+"Karan... why?"
+
+--- SCRIPT END ---

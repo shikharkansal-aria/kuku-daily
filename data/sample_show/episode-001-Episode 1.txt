@@ -1,0 +1,109 @@
+EPISODE NUMBER: Episode 1
+EPISODE LOGLINE: Meera finds her father's old key in her husband's drawer.
+CONTINUITY NOTES: Meera Rathore, married into the Shekhawat family of Jaipur. Haveli Moti Mahal is her late father's.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: INT. SHEKHAWAT HAVELI, BEDROOM - NIGHT
+Scene start: 00:00.00
+Scene end: 01:01.55
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:03.00)
+Slow push in on a brass lock, a bedroom drawer.
+
+**ACTION:**
+Start: (00:03.00) | End: (00:09.50)
+Meera, in a simple green saree, opens her husband's drawer looking for a pen.
+
+**SOUND FX:**
+Start: (00:09.50) | End: (00:12.50)
+Wedding bells chime faintly from a photo frame being knocked over.
+
+**ACTION:**
+Start: (00:12.50) | End: (00:19.00)
+Under the papers lies a heavy iron key tied with a faded red thread. Her hands freeze.
+
+**MEERA (Whispering, Stunned):**
+Start: (00:19.00) | End: (00:27.90)
+"This is Baba's key. The Moti Mahal key. How is it here?"
+
+**CAMERA:**
+Start: (00:27.90) | End: (00:30.90)
+Close on the red thread, the one her mother tied.
+
+**KARAN (Smiling, Casual):**
+Start: (00:30.90) | End: (00:37.55)
+"Meera? Still awake? Come, chai is ready."
+
+**ACTION:**
+Start: (00:37.55) | End: (00:44.05)
+Meera slides the key into her blouse and turns, smiling too brightly.
+
+**MEERA (Nervous):**
+Start: (00:44.05) | End: (00:52.05)
+"Bas ek minute, Karan. I was looking for a pen."
+
+**SOUND FX:**
+Start: (00:52.05) | End: (00:55.05)
+Footsteps descend the marble stairs.
+
+**ACTION:**
+Start: (00:55.05) | End: (01:01.55)
+The study. Dadi Sa, the family matriarch, sits under a portrait of her late husband.
+
+SCENE 02
+Scene heading: INT. SHEKHAWAT HAVELI, STUDY - NIGHT
+Scene start: 01:01.55
+Scene end: 02:10.20
+
+Actions and dialogue:
+
+**DADI SA (Cold, Commanding):**
+Start: (01:01.55) | End: (01:09.10)
+"A bahu who wanders at night finds trouble, beta."
+
+**MEERA (Respectful, Guarded):**
+Start: (01:09.10) | End: (01:16.65)
+"Just a headache, Dadi Sa. I will sleep early."
+
+**CAMERA:**
+Start: (01:16.65) | End: (01:19.65)
+Over the shoulder on Dadi Sa, watching Meera leave.
+
+**DADI SA (Whispering, Menacing):**
+Start: (01:19.65) | End: (01:26.75)
+"Karan, did the girl go near your drawer?"
+
+**KARAN (Uneasy):**
+Start: (01:26.75) | End: (01:33.85)
+"No, Dadi. She knows nothing. She cannot know."
+
+**ACTION:**
+Start: (01:33.85) | End: (01:40.35)
+In the corridor, Meera hears every word, her back pressed to the wall.
+
+**SOUND FX:**
+Start: (01:40.35) | End: (01:43.35)
+A sharp crack of thunder over Jaipur.
+
+**MEERA (Shocked, Trembling):**
+Start: (01:43.35) | End: (01:51.80)
+"They stole my father's haveli. And I married the thief's grandson."
+
+**ACTION:**
+Start: (01:51.80) | End: (01:58.30)
+She pulls out the key. A tiny paper rolled inside its hollow end falls to the floor.
+
+**MEERA (Terrified):**
+Start: (01:58.30) | End: (02:07.20)
+"A name? Whose name is this... and why is it my mother's?"
+
+**SOUND FX:**
+Start: (02:07.20) | End: (02:10.20)
+Dadi Sa's walking stick taps closer, closer.
+
+--- SCRIPT END ---

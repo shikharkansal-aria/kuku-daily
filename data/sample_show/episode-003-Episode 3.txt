@@ -1,0 +1,105 @@
+EPISODE NUMBER: Episode 3
+EPISODE LOGLINE: Meera meets Advocate Joshi, who hands her a deed.
+CONTINUITY NOTES: The file proves the haveli was never sold.
+
+--- SCRIPT START ---
+
+SCENE 01
+Scene heading: EXT. CHANDPOLE BAZAAR, JAIPUR - DAY
+Scene start: 00:00.00
+Scene end: 00:59.15
+
+Actions and dialogue:
+
+**CAMERA:**
+Start: (00:00.00) | End: (00:03.00)
+Wide shot of Chandpole bazaar, rickshaws and pink walls.
+
+**ACTION:**
+Start: (00:03.00) | End: (00:09.50)
+Meera, wearing a dupatta over her face, slips through the crowd.
+
+**SOUND FX:**
+Start: (00:09.50) | End: (00:12.50)
+Temple bells and hawkers shouting.
+
+**ACTION:**
+Start: (00:12.50) | End: (00:19.00)
+A narrow stairway above a sweet shop. A tin sign: Advocate V. Joshi.
+
+**JOSHI (Old, Surprised):**
+Start: (00:19.00) | End: (00:26.55)
+"Hari Singh ki beti? You have your father's eyes."
+
+**MEERA (Eager, Emotional):**
+Start: (00:26.55) | End: (00:35.90)
+"Joshi ji, the key. The note. Tell me what happened to Moti Mahal."
+
+**CAMERA:**
+Start: (00:35.90) | End: (00:38.90)
+Close on Joshi's trembling hands opening a rusted tin box.
+
+**ACTION:**
+Start: (00:38.90) | End: (00:45.40)
+He lays out a stamped deed dated 1998. Her father's signature is on every page.
+
+**JOSHI (Grave):**
+Start: (00:45.40) | End: (00:54.30)
+"Your father never sold it. The sale paper they show is forged."
+
+**MEERA (Shaken):**
+Start: (00:54.30) | End: (00:59.15)
+"Forged by whom?"
+
+SCENE 02
+Scene heading: INT. JOSHI'S OFFICE - DAY
+Scene start: 00:59.15
+Scene end: 02:10.05
+
+Actions and dialogue:
+
+**JOSHI (Low, Fearful):**
+Start: (00:59.15) | End: (01:07.60)
+"Thakur Bhanu Shekhawat. Your husband's grandfather. Dadi Sa signed as witness."
+
+**SOUND FX:**
+Start: (01:07.60) | End: (01:10.60)
+A glass bangle shatters; Meera has dropped her tea.
+
+**MEERA (Furious, Tearful):**
+Start: (01:10.60) | End: (01:18.15)
+"And Karan? Did he know when he married me?"
+
+**JOSHI (Reluctant):**
+Start: (01:18.15) | End: (01:27.05)
+"The marriage was arranged by them. Beta, that is not an accident."
+
+**ACTION:**
+Start: (01:27.05) | End: (01:33.55)
+Outside the window, a man in a grey jacket photographs the office door.
+
+**JOSHI (Urgent):**
+Start: (01:33.55) | End: (01:41.55)
+"Take the deed. The original is my insurance. Go, now."
+
+**ACTION:**
+Start: (01:41.55) | End: (01:48.05)
+Meera tucks the deed into her bag and moves to the door.
+
+**SOUND FX:**
+Start: (01:48.05) | End: (01:51.05)
+The door handle rattles from the outside.
+
+**KARAN (Calm, Dangerous):**
+Start: (01:51.05) | End: (01:58.15)
+"Meera. What a surprise to find you here."
+
+**CAMERA:**
+Start: (01:58.15) | End: (02:01.15)
+Hard cut on Karan filling the doorway, two guards behind him.
+
+**KARAN (Chilling):**
+Start: (02:01.15) | End: (02:10.05)
+"Give me the bag, jaan. Or Joshi ji will not see tomorrow."
+
+--- SCRIPT END ---
