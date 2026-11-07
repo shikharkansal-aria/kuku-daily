@@ -1,0 +1,106 @@
+{
+  "show_dir": "data/sample_show",
+  "language": "hinglish",
+  "episodes": 6,
+  "skipped_episodes": [],
+  "episode_scores": [
+    {
+      "ep": 1,
+      "seconds": 130.2,
+      "rule": 0.7,
+      "llm": 4,
+      "combined": 0.76,
+      "open_question": "Whose name is on the paper and why my mother?"
+    },
+    {
+      "ep": 2,
+      "seconds": 116.7,
+      "rule": 0.7,
+      "llm": 4,
+      "combined": 0.76,
+      "open_question": "Why does Karan demand Meera's bangle?"
+    },
+    {
+      "ep": 3,
+      "seconds": 130.1,
+      "rule": 0.0,
+      "llm": 5,
+      "combined": 0.6,
+      "open_question": "Will Joshi ji survive if Meera doesn't comply?"
+    },
+    {
+      "ep": 4,
+      "seconds": 127.6,
+      "rule": 0.75,
+      "llm": 5,
+      "combined": 0.9,
+      "open_question": "Is Joshi ji dead or alive?"
+    },
+    {
+      "ep": 5,
+      "seconds": 131.9,
+      "rule": 0.8,
+      "llm": 5,
+      "combined": 0.92,
+      "open_question": "Is the woman in white Meera's mother?"
+    },
+    {
+      "ep": 6,
+      "seconds": 134.5,
+      "rule": 0.95,
+      "llm": 5,
+      "combined": 0.98,
+      "open_question": "What did Karan do to cause this?"
+    }
+  ],
+  "drops": [
+    {
+      "n": 1,
+      "episodes": [
+        1,
+        2
+      ],
+      "repaired": false,
+      "seconds": 246.9,
+      "cliff_score": 0.76,
+      "llm_score": 4,
+      "rule_score": 0.7,
+      "open_question": "Why does Karan demand Meera's bangle?",
+      "teaser": "Karan ki aankhon mein kuch chhupa hai.\n\"Mummy ji called. Bas wahi.\"",
+      "quoted_line": "Mummy ji called. Bas wahi.",
+      "grounded": true
+    },
+    {
+      "n": 2,
+      "episodes": [
+        3,
+        4
+      ],
+      "repaired": false,
+      "seconds": 257.7,
+      "cliff_score": 0.9,
+      "llm_score": 5,
+      "rule_score": 0.75,
+      "open_question": "Is Joshi ji dead or alive?",
+      "teaser": "Meera ki aawaz hospital ke hall mein goonjti hai.\n\"Joshi ji! Wake up! Tell me, my mother is alive?\"",
+      "quoted_line": "Joshi ji! Wake up! Tell me, my mother is alive?",
+      "grounded": true
+    },
+    {
+      "n": 3,
+      "episodes": [
+        5,
+        6
+      ],
+      "repaired": false,
+      "seconds": 266.4,
+      "cliff_score": 0.98,
+      "llm_score": 5,
+      "rule_score": 0.95,
+      "open_question": "What did Karan do to cause this?",
+      "teaser": "Andhera sabko gher leta hai, koi jawab nahi milta.\n\"Meera! Meera, answer me!\"",
+      "quoted_line": "Meera! Meera, answer me!",
+      "grounded": true
+    }
+  ]
+}

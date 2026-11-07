@@ -22,18 +22,23 @@ for lang in ("english", "hinglish"):
 
 at = AppTest.from_file(str(Path(__file__).resolve().parent.parent / "app.py"), default_timeout=60).run()
 assert not at.exception, at.exception
-at.multiselect[0].set_value(["revenge"])
-next(b for b in at.button if b.label == "Continue").click()
-at.run()
+html = lambda: " ".join(m.value for m in at.markdown)
+at.button(key="v_homemaker").click().run()  # one-click demo viewer, no model
 assert not at.exception, at.exception
-assert any("Episodes ready" in m.value for m in at.markdown), "show cards"
-assert sum("Episodes ready" in m.value for m in at.markdown) == 1
-assert any(m.value.startswith("**Drop 1**") for m in at.markdown), "drop"
-next(b for b in at.button if b.label == "I watched it").click()
-at.run()
-assert any("Locked until" in m.value for m in at.markdown), "lock card"
-next(b for b in at.button if b.label == "Simulate: come back at reminder").click()
-at.run()
+assert "Your viewer profile" in html() and "Homemaker in Kanpur" in html(), "profile card"
+at.button(key="next").click().run()
+assert not at.exception, at.exception
+assert html().count('class="kd-show"') == 2, "2 show cards"
+assert html().count("Episodes ready") == 1, "one show has episodes"
+at.button(key=next(b.key for b in at.button if b.label == "Start watching")).click().run()
+assert not at.exception, at.exception
+assert "Drop 1 of 3" in html(), "drop 1 open"
+assert "Karan" in html(), "teaser from the demo cache"
+at.button(key="watched").click().run()
+assert not at.exception, at.exception
+assert "unlocks in" in html() and "24:00:00" in html() and "(your slot)" in html(), "lock card"
+at.button(key="ff").click().run()
 assert not at.exception, at.exception
 assert at.session_state.state["streak"] == 1, "streak"
+assert "Drop 2 of 3" in html(), "drop 2 open"
 print("app self-check: ok")
