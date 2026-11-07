@@ -89,14 +89,14 @@ def complete(prompt, system=None, want_json=False, task="general", temperature=0
         CALLS["cached"] += 1
         out = path.read_text()
     else:
-        for attempt in range(4):
+        for attempt in range(6):
             try:
                 out = _call(system, prompt, want_json, temperature)
                 break
             except Exception as e:
-                if attempt == 3 or not re.search(r"429|rate|overload|503|timeout", str(e), re.I):
+                if attempt == 5 or not re.search(r"429|rate|overload|503|timeout", str(e), re.I):
                     raise
-                time.sleep(5 * 2 ** attempt)
+                time.sleep(min(65, 5 * 2 ** attempt))  # free tiers reset per minute
         CALLS["live"] += 1
         CACHE.mkdir(parents=True, exist_ok=True)
         path.write_text(out)

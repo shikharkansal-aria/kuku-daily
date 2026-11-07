@@ -15,13 +15,13 @@ from .match import load_catalog, pick, show_entry
 from .persona import extract, quick
 
 
-def run(show, personas, out, title=None, catalog=None):
+def run(show, personas, out, title=None, catalog=None, langs=("english", "hinglish")):
     out = Path(out)
     (out / "personas").mkdir(parents=True, exist_ok=True)
     t0 = time.time()
     entry = show_entry(show, title)
     cat = load_catalog(catalog, extra=[entry])
-    sched = {lang: build_schedule(show, lang) for lang in ("english", "hinglish")}
+    sched = {lang: build_schedule(show, lang) for lang in langs}  # english is always needed for the report
     for lang, s in sched.items():
         (out / f"drops_{lang}.json").write_text(json.dumps(s, indent=2, ensure_ascii=False))
     (out / "show_entry.json").write_text(json.dumps(entry, indent=2))
@@ -33,7 +33,7 @@ def run(show, personas, out, title=None, catalog=None):
             rows.append({"id": p["id"], "error": f"persona: {str(e)[:200]}"})
             continue
         m = pick(persona, cat)
-        drops = sched[persona.language]["drops"]
+        drops = sched.get(persona.language, sched["english"])["drops"]
         sim = gates.simulate(p.get("tier", "free"), persona.slots, len(drops), days=14, skip_days=(4,))
         rec = {"input": p, "persona": persona.model_dump(), "match": m,
                "gets_input_show": any(x["id"] == entry["id"] for x in m["picks"]), "gate_sim": sim}
@@ -101,10 +101,11 @@ if __name__ == "__main__":
     ap.add_argument("--personas", default="data/test_personas.json")
     ap.add_argument("--catalog")
     ap.add_argument("--out", default=f"outputs/runs/{datetime.now():%Y%m%d-%H%M}")
+    ap.add_argument("--langs", default="english,hinglish", help="teaser languages; english is required")
     ap.add_argument("--model", help="override LLM_MODEL")
     ap.add_argument("--base-url", help="override OPENAI_BASE_URL")
     ap.add_argument("--key-env", help="name of the env var holding the API key, e.g. ALT_OPENAI_API_KEY")
     a = ap.parse_args()
     import os
     with llm.use(LLM_MODEL=a.model, OPENAI_BASE_URL=a.base_url, OPENAI_API_KEY=os.getenv(a.key_env or "", "")):
-        print("wrote", run(a.show, a.personas, a.out, a.title, a.catalog))
+        print("wrote", run(a.show, a.personas, a.out, a.title, a.catalog, tuple(a.langs.split(","))))
