@@ -1,5 +1,7 @@
 # Kuku Daily
 
+Live app: https://kuku-daily.streamlit.app/
+
 Prototype for Kuku's AI Generalist assignment (Problem 3). A new viewer answers a few questions, gets 2 shows that fit them, and watches the story in 4 to 5 minute drops that end on a cliffhanger. A timer sits before the next drop, for free users and subscribers alike, so the habit is coming back, not bingeing to a paywall.
 
 ## How it works
@@ -20,11 +22,11 @@ cp .env.example .env                # add one key; Groq and Gemini free tiers bo
 .venv/bin/python -m tools.run_batch --show data/sample_show --title "The Lost Haveli (demo)" --out outputs/runs/demo
 ```
 
-A show is a folder of `episode-001-*.txt` files in the screenplay format of `data/sample_show/`. To run on a new show, point `--show` at its folder, or upload a zip in the app sidebar. Each run writes per-persona JSON, the drop schedule in English and Hinglish, and `validation_report.md` with every failure listed.
+A show is a folder of `episode-001-*.txt` files in the screenplay format of `data/sample_show/`. To run on a new show, point `--show` at its folder, or upload a zip in the app's "For reviewers" box. Each run writes per-persona JSON, the drop schedule in English and Hinglish, and `validation_report.md` with every failure listed.
 
 ## Swap the model
 
-All calls go through `tools/llm.py`. Set `LLM_PROVIDER=openai` with `OPENAI_BASE_URL`, `OPENAI_API_KEY` and `LLM_MODEL` for any OpenAI-compatible endpoint, or `LLM_PROVIDER=anthropic` with `ANTHROPIC_API_KEY`. Per run: `--model`, `--base-url`, `--key-env`. In the app: the sidebar, where a typed key stays in that browser session only. Responses are cached in `.cache/llm/`, so re-runs are free.
+All calls go through `tools/llm.py`. Set `LLM_PROVIDER=openai` with `OPENAI_BASE_URL`, `OPENAI_API_KEY` and `LLM_MODEL` for any OpenAI-compatible endpoint, or `LLM_PROVIDER=anthropic` with `ANTHROPIC_API_KEY`. Per run: `--model`, `--base-url`, `--key-env`. In the app: the "For reviewers" box at the bottom, where a typed key stays in that browser session only. Responses are cached in `.cache/llm/`, so re-runs are free.
 
 Tested on Groq `openai/gpt-oss-120b` and Gemini `gemini-3.5-flash`. Compare two runs with `python -m tools.compare_runs RUN_A RUN_B`.
 
