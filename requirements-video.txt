@@ -2,3 +2,5 @@
 faster-whisper
 whisperx
 easyocr
+scenedetect
+opencv-python-headless
