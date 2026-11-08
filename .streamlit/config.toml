@@ -1,10 +1,16 @@
 [theme]
 base = "dark"
-primaryColor = "#F2B544"
-backgroundColor = "#15131A"
-secondaryBackgroundColor = "#221F2B"
-textColor = "#EEE9E2"
-font = "sans serif"
+primaryColor = "#F2A93B"
+backgroundColor = "#170D18"
+secondaryBackgroundColor = "#2A1B2D"
+textColor = "#F7ECDF"
+linkColor = "#FFC56A"
+borderColor = "#4A3550"
+font = "Manrope:https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap, sans-serif"
+headingFont = "Rozha One:https://fonts.googleapis.com/css2?family=Rozha+One&display=swap, serif"
+headingFontWeights = 400
+baseRadius = "12px"
+buttonRadius = "999px"
 
 [client]
 toolbarMode = "minimal"
