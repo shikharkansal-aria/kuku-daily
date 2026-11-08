@@ -1,10 +1,10 @@
 // First-visit intro: 4 story cards (problem, why it hurts, the fix, how to use the page).
-// Shows once per browser (localStorage), always with ?intro=1, and again from the "Intro" nav button.
+// Opens on every page load (Shikhar, 8 Nov: the link must always start with the walkthrough), and again from the "Intro" nav button.
 (() => {
   "use strict";
   const dlg = document.getElementById("intro");
   if (!dlg || !dlg.showModal) return;
-  const KEY = "kd-intro-seen", DUR = 5500, root = document.documentElement;
+  const DUR = 5500, root = document.documentElement;
   const RM = matchMedia("(prefers-reduced-motion: reduce)").matches, HOVER = matchMedia("(hover: hover)");
   const cards = [...dlg.querySelectorAll(".ib-card")], bars = [...dlg.querySelectorAll(".ib-bars i")], N = cards.length;
   const box = dlg.querySelector(".ib-cards"), count = dlg.querySelector(".ib-n"), pauseBtn = dlg.querySelector(".ib-pause");
@@ -57,7 +57,6 @@
     opener = a && a.classList.contains("intro-open") ? a : hero;
     const p = document.getElementById("pause");
     if (p && p.getAttribute("aria-pressed") === "false") p.click();  // pause the autoplay demo behind the intro
-    try { localStorage.setItem(KEY, "1"); } catch (e) { /* storage blocked: intro still works */ }
     hover = kbFocus = false; setUserPaused(false);
     dlg.showModal(); root.classList.add("intro-lock");
     dlg.focus();
@@ -108,7 +107,5 @@
 
   document.querySelectorAll(".intro-open").forEach((b) => b.addEventListener("click", open));
 
-  let seen = false;
-  try { seen = localStorage.getItem(KEY) === "1"; } catch (e) { /* treat as first visit */ }
-  if (new URLSearchParams(location.search).get("intro") === "1" || !seen) open();
+  open();
 })();
