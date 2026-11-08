@@ -1,0 +1,104 @@
+{
+  "input": {
+    "id": "p01-homemaker-kanpur",
+    "tier": "free",
+    "language": "hinglish",
+    "answers": [
+      "Main housewife hoon, Kanpur se, 42 saal",
+      "Dopahar 2 baje aur raat 10 baje",
+      "Saas bahu wali, family drama, jisme bahu apna haq le",
+      "Gande scenes ya zyada maar-peet nahi",
+      "Kabhi kabhi saas ke saath"
+    ]
+  },
+  "persona": {
+    "who": "housewife",
+    "age_band": "35-50",
+    "city_tier": "tier2",
+    "language": "hinglish",
+    "slots": [
+      "14:00",
+      "22:00"
+    ],
+    "likes": [
+      "family drama",
+      "saas-bahu"
+    ],
+    "dislikes": [],
+    "watch_with": "family",
+    "minutes_per_day": 15,
+    "summary": "42 saal ki housewife, Kanpur se, family drama aur saas-bahu pasand, dopahar 2 baje aur raat 10 baje dekhna."
+  },
+  "match": {
+    "source": "llm",
+    "error": null,
+    "picks": [
+      {
+        "id": "kuku-saas-bahu-reloaded",
+        "title": "Saas Bahu Reloaded",
+        "platform": "Kuku TV",
+        "language": [
+          "hindi"
+        ],
+        "tags": [
+          "saas-bahu",
+          "family drama"
+        ],
+        "logline": "A young wife's small everyday choices set off power struggles inside a joint household.",
+        "family_safe": true,
+        "source_url": "https://mediabrief.com/the-mediabrief-micro-drama-viewers-guide-10-platforms-120-synopses/",
+        "reason": "Aapko saas‑bahu drama pasand hai, ismein har roz ki choti‑choti jhagde aur pyaar ka maza milega."
+      },
+      {
+        "id": "the-lost-haveli-demo",
+        "title": "The Lost Haveli (demo)",
+        "platform": "Kuku TV (input pack)",
+        "language": [
+          "english"
+        ],
+        "tags": [
+          "family drama",
+          "mystery",
+          "hidden identity",
+          "marriage",
+          "betrayal"
+        ],
+        "logline": "Meera uncovers a hidden family secret tied to a mysterious key, confronting betrayal and hidden identities within her marriage and ancestral home.",
+        "family_safe": true,
+        "source_url": "local",
+        "has_scripts": true,
+        "reason": "Parivaarik raaz aur shaadi ki kahaniyon ka mix aapke family drama ke shauq ko aur bhi pakka karega."
+      }
+    ]
+  },
+  "gets_input_show": true,
+  "gate_sim": [
+    {
+      "session": 1,
+      "watched_at": "2026-11-09T20:00",
+      "streak": 0,
+      "drops_open": 1,
+      "wait_h": 24,
+      "next_unlock": "2026-11-10T20:00",
+      "reminder": "2026-11-10T22:00"
+    },
+    {
+      "session": 2,
+      "watched_at": "2026-11-10T22:00",
+      "streak": 1,
+      "drops_open": 2,
+      "wait_h": 24,
+      "next_unlock": "2026-11-11T22:00",
+      "reminder": "2026-11-11T22:00"
+    },
+    {
+      "session": 3,
+      "watched_at": "2026-11-11T22:00",
+      "streak": 2,
+      "drops_open": 3,
+      "wait_h": 24,
+      "next_unlock": "2026-11-12T22:00",
+      "reminder": "2026-11-12T22:00"
+    }
+  ]
+}

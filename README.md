@@ -1,8 +1,9 @@
 # Kuku Daily
 
-Live app: https://kuku-daily.streamlit.app/
+Prototype (guided demo): https://shikharkansal-aria.github.io/kuku-daily/
+Live lab (runs the real model on your own words or a new show): https://kuku-daily.streamlit.app/
 
-Prototype for Kuku's AI Generalist assignment (Problem 3). A new viewer answers a few questions, gets 2 shows that fit them, and watches the story in 4 to 5 minute drops that end on a cliffhanger. A timer sits before the next drop, for free users and subscribers alike, so the habit is coming back, not bingeing to a paywall.
+Prototype for Kuku's AI Generalist assignment (Problem 3). A new viewer answers a few questions, gets 2 shows that fit them, and watches the story in 3.5 to 6 minute drops that end on a cliffhanger. A timer sits before the next drop, for free users and subscribers alike, so the habit is coming back, not bingeing to a paywall.
 
 ## How it works
 
@@ -36,13 +37,15 @@ Tested on Groq `openai/gpt-oss-120b` and Gemini `gemini-3.5-flash`. Compare two 
 .venv/bin/python -m tools.test_core   # offline, mock model: gates, persona, matching, drops, full batch
 .venv/bin/python -m tools.test_app    # Streamlit click-through on the mock model
 python3 -I tools/test_parse.py        # screenplay parser
+.venv/bin/python -m tools.test_web_gates  # web/gates.js gives the same answers as tools/gates.py (needs node)
 ```
 
 ## Layout
 
 | Path | What |
 |---|---|
-| `app.py` | Streamlit app |
+| `web/` | Static guided prototype on GitHub Pages; `data.js` is built from real pipeline outputs by `python -m tools.export_web` |
+| `app.py` | Streamlit live lab |
 | `tools/` | Parser, LLM adapter, persona, matching, drops, gates, batch runner, review mining, tests |
 | `data/catalog.json` | 10 public microdrama shows (titles, tags, own-words loglines, source links) |
 | `data/sample_show/` | Fictional 6-episode demo show written for this repo |

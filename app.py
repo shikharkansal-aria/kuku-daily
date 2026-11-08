@@ -16,6 +16,7 @@ ROOT = Path(__file__).parent
 DEMO = ROOT / "data" / "sample_show"
 CACHE = ROOT / "data" / "demo_cache"  # drops and tags for the fictional demo show, made ahead so the demo needs no key
 REPO = "https://github.com/shikharkansal-aria/kuku-daily"
+PROTOTYPE_URL = "https://shikharkansal-aria.github.io/kuku-daily/"  # the static guided demo in web/, on GitHub Pages
 S = st.session_state
 for k, v in {"step": 1, "persona": None, "lang": "Hinglish", "tier": "free"}.items():
     S.setdefault(k, v)
@@ -245,6 +246,8 @@ html_block(
     'before any story hooks them.<br><b>Fix:</b> answer a few questions, get 2 shows that fit you, and watch the story in 5 minute '
     'drops that end on a cliffhanger. The next drop unlocks at your time slot, like a TV serial.</p>'
     '<p class="kd-small">Prototype for Kuku\'s AI Generalist assignment. The demo show is fictional.</p>'
+    f'<p class="kd-pf"><b>This is the live lab:</b> it runs the real model on your own words or on a new show. '
+    f'For the guided product demo, open <a href="{PROTOTYPE_URL}" target="_blank">the Kuku Daily prototype</a>.</p>'
     '<div class="kd-flow">' + "".join(f'<div class="{"on" if i + 1 == S.step else ""}"><i>{i + 1}</i>{t}</div>'
                                       for i, t in enumerate(FLOW)) + '</div>'
     f'<div class="kd-step">Step {S.step} of 4</div><div class="kd-h">{STEPS[S.step - 1]}</div>')
