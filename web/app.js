@@ -776,24 +776,24 @@
     if (!nextDrops().length) return;
     const l = L(), g = gcalc(), from = S.now, total = g.wait * 3600e3, nx = nextDrops();
     busy(true);
-    cap("Fast-forward", `The drop is ready ${at(g.unlock, from)}. The phone buzzes at ${W().her} free slot, ${at(g.remind, from)}, with ${S.lang === "hinglish" ? "the first line of the teaser" : "the open question from the last episode"}.`);
+    cap("Fast-forward", `The clock jumps ahead. Drop ${joinN(nx)} unlocks ${at(g.unlock, from)}, and the phone buzzes at ${W().her} free slot, ${at(g.remind, from)}, with ${S.lang === "hinglish" ? "the first line of the teaser" : "the open question from the last episode"}.`);
     const hands = $$(".simclock .hh, .simclock .mh");
     hands.forEach((h, i) => fx(h, [{ transform: "rotate(0)" }, { transform: "rotate(360deg)" }], { d: i ? 500 : 1500, it: Infinity, e: "linear", fill: "none" }));
     let unlocked = false;
-    await tween(2600, (p) => {
+    await tween(2000, (p) => {
       const t = new Date(from.getTime() + (g.remind - from) * p);
       setClock(t);
       const rem = g.unlock - t;
       if (rem > 0) paintRing(rem / total, left(rem), "lock");
       else {
         paintRing(0, l.ready, "unlock");
-        if (!unlocked) { unlocked = true; fx($(".ring"), [{ transform: "scale(1)" }, { transform: "scale(1.1)" }, { transform: "scale(1)" }], { d: 500, fill: "none" }); }
+        if (!unlocked) { unlocked = true; $(".lock-w").textContent = l.ready; fx($(".ring"), [{ transform: "scale(1)" }, { transform: "scale(1.1)" }, { transform: "scale(1)" }], { d: 500, fill: "none" }); }
       }
     }, sine);
     hands.forEach((h) => h.getAnimations().forEach((a) => a.cancel()));
     const prev = DROPS()[S.opened - 1];
     await notify(`${KD.show.title}: ${l.opened(joinN(nx))}`, S.lang === "hinglish" ? prev.teaser.split("\n")[0] : prev.open_question);
-    await wait(2000);
+    await wait(1200);
     await tap($("#notif"));
     hideNotif(true);
     const ns = G.updateStreak(S.streak, g.unlock, g.remind);
@@ -803,7 +803,7 @@
     fx($(".lock"), [{ transform: "scale(.97)" }, { transform: "none" }], { d: 500, fill: "none" });
     setStreak(ns, true);
     cap("Back on time", `${W().she[0].toUpperCase() + W().she.slice(1)} came back within ${G.config.grace_h} hours of the unlock, so the streak goes from 0 to ${ns}. Day 2 starts with drop ${joinN(nx)}.`);
-    await wait(1800);
+    await wait(900);
     S.busy = false;
     renderGate(true);
   }

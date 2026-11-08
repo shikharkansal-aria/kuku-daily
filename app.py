@@ -11,7 +11,7 @@ import streamlit as st
 
 from tools import drops, gates, llm, match, persona as P
 
-st.set_page_config(page_title="Kuku Daily · Live lab", layout="centered", initial_sidebar_state="collapsed")
+st.set_page_config(page_title="Kuku Daily · Live lab", page_icon=":material/live_tv:", layout="centered", initial_sidebar_state="collapsed")
 ROOT = Path(__file__).parent
 DEMO = ROOT / "data" / "sample_show"
 CACHE = ROOT / "data" / "demo_cache"  # drops and tags for the fictional demo show, made ahead so the demo needs no key
@@ -399,7 +399,8 @@ def step_li(i, t):
 
 html_block(
     f'<div class="kd-top"><div class="kd-brand">Kuku <span>Daily</span></div><span class="kd-live"><i></i>Live lab</span>'
-    f'<nav><a href="{PROTOTYPE_URL}" target="_blank">Guided demo ↗</a><a href="{REPO}" target="_blank">Code ↗</a></nav></div>'
+    f'<nav><a href="{PROTOTYPE_URL}" target="_blank">Guided demo ↗</a>'
+    f'<a href="{PROTOTYPE_URL}trailer.mp4" target="_blank">Trailer ↗</a><a href="{REPO}" target="_blank">Code ↗</a></nav></div>'
     '<p class="kd-eye">The real model, running now</p>'
     '<div class="kd-h1" role="heading" aria-level="1">Two shows, not thirty.<br><em>Then the story brings you back.</em></div>'
     '<p class="kd-lede">Kuku TV shows a new viewer about 30 shows and asks them to pay (Rs 199 to 1,499, auto-renew) before any story '
@@ -679,8 +680,8 @@ def ladder_html(streak):
 def step4():
     head(4, LEDE[4])
     S.tier_w = S.tier
-    st.radio("Your plan", ["free", "subscriber"], key="tier_w", horizontal=True, on_change=set_tier, format_func=str.title,
-             captions=["1 drop per unlock", "2 drops per unlock, shorter waits"])
+    st.radio("Your plan", ["free", "subscriber"], key="tier_w", horizontal=True, on_change=set_tier,
+             format_func={"free": "Free · 1 drop per unlock", "subscriber": "Subscriber · 2 drops, shorter waits"}.get)
     sched, _ = schedule()
     D, stt = sched["drops"], S.state
     nxt = stt["cur"] + stt["watched"]

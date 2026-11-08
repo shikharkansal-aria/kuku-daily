@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Kuku Daily: two shows, one drop a day</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23f2a93b'/%3E%3Ctext x='32' y='45' font-size='36' text-anchor='middle' font-family='Georgia,serif' fill='%23211204'%3EK%3C/text%3E%3C/svg%3E">
 <meta name="description" content="Concept prototype for Kuku TV: five questions, two shows picked for you, one short cliffhanger drop a day, and the next one unlocks at your hour.">
 <meta name="theme-color" content="#170d18">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,6 +35,7 @@
       <div class="cta">
         <button type="button" class="btn primary" data-start="auto"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" stroke="none"/></svg>Play the first 3 days <small>75 s</small></button>
         <button type="button" class="btn" data-start="manual">Try it yourself</button>
+        <button type="button" class="btn" id="trailer-open"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M10 9.5v5l4.5-2.5z" fill="currentColor" stroke="none"/></svg>Watch the 30 s trailer</button>
       </div>
     </div>
     <figure class="wall" aria-label="Thirty show posters collapse into the two shows picked for this viewer">
@@ -151,5 +153,22 @@
 <script src="data.js"></script>
 <script src="gates.js"></script>
 <script src="app.js"></script>
+<dialog class="trailer-dlg" id="trailer" aria-label="Kuku Daily, 30 second trailer">
+  <video src="trailer.mp4" poster="trailer.jpg" controls playsinline preload="none"></video>
+  <div class="bar"><p>Made from the same real outputs as this page. No sound.</p><button type="button" class="btn sm" id="trailer-close">Close</button></div>
+</dialog>
+<script>
+(() => {
+  const d = document.getElementById("trailer"), v = d.querySelector("video");
+  document.getElementById("trailer-open").addEventListener("click", () => {
+    const p = document.getElementById("pause");
+    if (p && p.getAttribute("aria-pressed") === "false") p.click();  // pause the autoplay demo behind the dialog
+    d.showModal(); v.play().catch(() => {});
+  });
+  document.getElementById("trailer-close").addEventListener("click", () => d.close());
+  d.addEventListener("click", (e) => { if (e.target === d) d.close(); });  // click on the backdrop
+  d.addEventListener("close", () => v.pause());
+})();
+</script>
 </body>
 </html>

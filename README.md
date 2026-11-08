@@ -1,7 +1,8 @@
 # Kuku Daily
 
-Prototype (guided demo): https://shikharkansal-aria.github.io/kuku-daily/
-Live lab (runs the real model on your own words or a new show): https://kuku-daily.streamlit.app/
+- Prototype (guided demo): https://shikharkansal-aria.github.io/kuku-daily/
+- Live lab (runs the real model on your own words or a new show): https://kuku-daily.streamlit.app/
+- 30 s trailer: https://shikharkansal-aria.github.io/kuku-daily/trailer.mp4 (also on the prototype page)
 
 Prototype for Kuku's AI Generalist assignment (Problem 3). A new viewer answers a few questions, gets 2 shows that fit them, and watches the story in 3.5 to 6 minute drops that end on a cliffhanger. A timer sits before the next drop, for free users and subscribers alike, so the habit is coming back, not bingeing to a paywall.
 
@@ -45,6 +46,7 @@ python3 -I tools/test_parse.py        # screenplay parser
 | Path | What |
 |---|---|
 | `web/` | Static guided prototype on GitHub Pages; `data.js` is built from real pipeline outputs by `python -m tools.export_web` |
+| `trailer/` | Remotion source of the 30 s trailer (`web/trailer.mp4`); `cd trailer && npm install && npm run render` re-exports `web/data.js` and renders |
 | `app.py` | Streamlit live lab |
 | `tools/` | Parser, LLM adapter, persona, matching, drops, gates, batch runner, review mining, tests |
 | `data/catalog.json` | 10 public microdrama shows (titles, tags, own-words loglines, source links) |

@@ -15,3 +15,8 @@ outputs/
 outputs/phone/
 submission/
 submission/raw_outputs/
+
+# Remotion trailer
+trailer/node_modules/
+trailer/out/
+trailer/.remotion/

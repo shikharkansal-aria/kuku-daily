@@ -1,0 +1,133 @@
+{
+  "show": {
+    "title": "The Lost Haveli"
+  },
+  "firstScreen": "25 to 30",
+  "picks": [
+    {
+      "title": "Saas Bahu Reloaded",
+      "platform": "Kuku TV",
+      "tags": [
+        "saas-bahu",
+        "family drama"
+      ],
+      "familySafe": true,
+      "reason": "Aapko saas-bahu drama pasand hai, ismein har roz ki choti-choti jhagde aur pyaar ka maza milega."
+    },
+    {
+      "title": "The Lost Haveli",
+      "platform": "Demo show (fictional)",
+      "tags": [
+        "family drama",
+        "mystery"
+      ],
+      "familySafe": true,
+      "reason": "Parivaarik raaz aur shaadi ki kahaniyon ka mix aapke family drama ke shauq ko aur bhi pakka karega."
+    }
+  ],
+  "questions": [
+    "Aap kaun ho?",
+    "Din mein kab free hote ho?",
+    "Kaisi kahaniyan pasand hain?",
+    "Kya bilkul nahi dekhna?",
+    "Akele dekhte ho ya family ke saath?"
+  ],
+  "answers": [
+    "Main housewife hoon, Kanpur se, 42 saal",
+    "Dopahar 2 baje aur raat 10 baje",
+    "Saas bahu wali, family drama, jisme bahu apna haq le",
+    "Gande scenes ya zyada maar-peet nahi",
+    "Kabhi kabhi saas ke saath"
+  ],
+  "persona": {
+    "who": "housewife",
+    "slots": [
+      "2 pm",
+      "10 pm"
+    ],
+    "likes": [
+      "family drama",
+      "saas-bahu"
+    ],
+    "watchWith": "family"
+  },
+  "drop": {
+    "n": 1,
+    "episodes": [
+      1,
+      2
+    ],
+    "minutes": 4,
+    "cliff": 0.76,
+    "llm": 4,
+    "rule": 0.7,
+    "teaser": [
+      "Karan ki aankhon mein kuch chhupa hai.",
+      "Mummy ji called. Bas wahi."
+    ],
+    "quoted": "Mummy ji called. Bas wahi.",
+    "grounded": true,
+    "foundInEpisode": 2
+  },
+  "tail": [
+    {
+      "type": "dialogue",
+      "speaker": "MEERA",
+      "cue": "Quick, Nervous",
+      "start": 97.8,
+      "end": 103.55,
+      "text": "Mummy ji called. Bas wahi."
+    },
+    {
+      "type": "dialogue",
+      "speaker": "KARAN",
+      "cue": "Cold, Quiet",
+      "start": 103.55,
+      "end": 109.3,
+      "text": "Show me your bangle, Meera."
+    },
+    {
+      "type": "sound_fx",
+      "speaker": null,
+      "cue": null,
+      "start": 109.3,
+      "end": 112.3,
+      "text": "Heartbeat thuds."
+    },
+    {
+      "type": "dialogue",
+      "speaker": "MEERA",
+      "cue": "Terrified",
+      "start": 112.3,
+      "end": 116.7,
+      "text": "Karan... why?"
+    }
+  ],
+  "tailEpisode": 2,
+  "tailEpisodeSeconds": 116.7,
+  "gates": {
+    "levels": [
+      0,
+      3,
+      7
+    ],
+    "free": [
+      24,
+      10,
+      5
+    ],
+    "subscriber": [
+      10,
+      5,
+      2
+    ]
+  },
+  "session": {
+    "watched": "8 pm",
+    "watchedHour": 20,
+    "reminderHour": 22,
+    "waitH": 24,
+    "reminder": "10 pm",
+    "nextDrop": 2
+  }
+}

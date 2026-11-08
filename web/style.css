@@ -74,7 +74,7 @@ p { margin: 0; text-wrap: pretty; }
 .btn.primary { background: var(--gold); border-color: var(--gold); color: var(--gold-ink); box-shadow: 0 10px 30px -12px rgba(242, 169, 59, .7); }
 .btn.primary:hover { background: var(--gold-2); border-color: var(--gold-2); }
 .btn small { font-weight: 750; font-size: .8rem; line-height: 1; padding: 4px 8px; border-radius: 999px; background: #d98e22; color: var(--gold-ink); }
-.btn.sm { min-height: 40px; padding: 0 16px; font-size: .92rem; }
+.btn.sm { min-height: 44px; padding: 0 16px; font-size: .92rem; }
 .btn[disabled] { opacity: .45; cursor: not-allowed; }
 .btn.nudge { animation: nudge 1.6s var(--e-io) infinite; }
 @keyframes nudge { 0%, 100% { box-shadow: 0 0 0 0 rgba(242, 169, 59, .5); } 50% { box-shadow: 0 0 0 7px rgba(242, 169, 59, 0); } }
@@ -553,3 +553,13 @@ pre .b { color: var(--red); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; transition-delay: 0s !important; }
 }
+
+/* gate demo buttons while an action runs */
+.dbtn:disabled { opacity: .5; cursor: progress; }
+/* 30 s trailer */
+.trailer-dlg { width: min(960px, calc(100vw - 32px)); max-width: none; padding: 0; border: 1px solid var(--line-2); border-radius: 18px;
+  background: #0d070e; color: var(--ink); box-shadow: 0 40px 120px -30px #000; }
+.trailer-dlg::backdrop { background: rgba(8, 4, 9, .82); backdrop-filter: blur(4px); }
+.trailer-dlg video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; }
+.trailer-dlg .bar { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px 10px 18px; }
+.trailer-dlg .bar p { margin: 0; color: var(--ink-3); font-size: .88rem; }
