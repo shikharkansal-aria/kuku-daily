@@ -38,7 +38,7 @@
   <section class="hero" id="top">
     <div class="hero-copy">
       <h1>Kuku TV shows a new viewer about 30 shows. <em>Kuku Daily shows two.</em></h1>
-      <p class="lede">A concept for Kuku TV. Five questions in chat, two shows picked for you, one short drop a day (about 4 minutes) that stops on a cliffhanger, and the next drop unlocks at the hour you said you are free.</p>
+      <p class="lede">Five chat questions, then one short cliffhanger drop a day, at your free time.</p>
       <div class="cta">
         <button type="button" class="btn primary" data-start="auto"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" stroke="none"/></svg>Play the first 3 days <small>75 s</small></button>
         <button type="button" class="btn" data-start="manual">Try it yourself</button>
@@ -48,14 +48,14 @@
     <figure class="wall" aria-label="Thirty show posters collapse into the two shows picked for this viewer">
       <div class="tiles" aria-hidden="true"></div>
       <div class="duo" aria-hidden="true"></div>
-      <figcaption><span class="wall-n">30</span><span class="wall-l">shows in the first three scrolls today</span></figcaption>
+      <figcaption><span class="wall-n">30</span><span class="wall-l">shows to pick from</span></figcaption>
     </figure>
     <div class="facts">
-      <h2>What a new viewer meets on Kuku TV today</h2>
+      <h2>Kuku TV today</h2>
       <ul>
-        <li><b>1 question</b>Onboarding asks only for the language, from 10 choices.</li>
-        <li><b>25 to 30 shows</b>Three scrolls show about 8 rows of posters to choose from.</li>
-        <li><b><span id="price-pct">20</span>% of reviews</b>Price and billing come up in 20% of 500 Kuku TV English Play Store reviews, and in about half of the 1 and 2 star ones. Plans run Rs 199 a month to Rs 1,499 a year, auto-renew, with no trial shown.</li>
+        <li title="Onboarding asks only for the language, from 10 choices."><b>1 question</b>language only</li>
+        <li title="Three scrolls show about 8 rows of posters to choose from."><b>25 to 30 shows</b>in three scrolls</li>
+        <li title="Price and billing come up in 20% of 500 Kuku TV English Play Store reviews, and in about half of the 1 and 2 star ones. Plans run Rs 199 a month to Rs 1,499 a year, auto-renew, with no trial shown."><b><span id="price-pct">20</span>% of 500 reviews</b>mention price or billing</li>
       </ul>
     </div>
   </section>
@@ -105,56 +105,42 @@
 
   <section class="sec" id="how" aria-labelledby="how-h">
     <h2 id="how-h">How it works</h2>
-    <p class="sec-lede">The model gets two jobs: reading the viewer and reading the scripts. Everything that has to be predictable, like filters, drop sizes, quote checks, timers and streaks, is plain code.</p>
     <ol class="pipe" id="pipe">
-      <li class="node" style="--i:0"><span class="node-dot">1</span><h3>Screenplay</h3><p>Each episode as scenes, lines, speakers, cues and timings.</p><p class="who"><span class="tag-in">Input</span></p></li>
-      <li class="node" style="--i:1"><span class="node-dot">2</span><h3>Score each ending 1 to 5</h3><p>The model rates the last 20 seconds. Rules score the same lines.</p><p class="who"><span class="tag-ai">AI</span><span class="tag-cd">Code</span></p></li>
-      <li class="node" style="--i:2"><span class="node-dot">3</span><h3>Pack 3.5 to 6 minute drops</h3><p>Two or three episodes per drop, cut at the strongest cliffhanger nearby.</p><p class="who"><span class="tag-cd">Code</span></p></li>
-      <li class="node" style="--i:3"><span class="node-dot">4</span><h3>Check the teaser</h3><p>The teaser must quote a real line from the ending. If it does not, code repairs it.</p><p class="who"><span class="tag-ai">AI</span><span class="tag-cd">Code</span></p></li>
-      <li class="node" style="--i:4"><span class="node-dot">5</span><h3>Timer gates</h3><p>Waits by plan and streak, reminders in your free slot, streaks that fall one level.</p><p class="who"><span class="tag-cd">Code</span></p></li>
+      <li class="node" style="--i:0" title="AI reads five free-text answers, fills the profile, picks two shows and writes the reasons. Code validates every field, drops unknown tags and removes shows that break the family-safe rule."><span class="node-dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4.5 6.5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H10l-4 3.5v-3.5h0a2 2 0 0 1-1.5-2z"/><path d="M8.5 9.5h7M8.5 12.5h4"/></svg></span><h3>Read the viewer</h3><p>Five answers become a profile and two picks.</p><p class="who"><span class="tag-ai">AI</span><span class="tag-cd">Code</span></p></li>
+      <li class="node" style="--i:1" title="AI rates each ending 1 to 5 and names the open question. Code adds a rule score (emotion cues, threats, questions), then 0.6 x model/5 + 0.4 x rules."><span class="node-dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h2M7 8v8M11 5v14M15 9v6M19 11v2"/></svg></span><h3>Score each ending</h3><p>Model and rules score the last 20 seconds.</p><p class="who"><span class="tag-ai">AI</span><span class="tag-cd">Code</span></p></li>
+      <li class="node" style="--i:2" title="Two or three episodes per drop, cut at the strongest cliffhanger nearby."><span class="node-dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4l8.5 4.5L12 13 3.5 8.5z"/><path d="M3.5 12.5L12 17l8.5-4.5M3.5 16.5L12 21l8.5-4.5"/></svg></span><h3>Pack the drops</h3><p>3.5 to 6 minutes, cut at the strongest cliffhanger.</p><p class="who"><span class="tag-cd">Code</span></p></li>
+      <li class="node" style="--i:3" title="AI writes the teaser around one quoted line. Code checks the line exists in the ending and repairs it if not."><span class="node-dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span><h3>Check the teaser</h3><p>AI quotes the ending; code checks the line exists.</p><p class="who"><span class="tag-ai">AI</span><span class="tag-cd">Code</span></p></li>
+      <li class="node" style="--i:4" title="Waits by plan and streak, reminders in your free slot, streaks that fall one level."><span class="node-dot"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 12V8.2M12 12h4.2"/></svg></span><h3>Timer gates</h3><p>Waits by plan and streak; reminders at your free time.</p><p class="who"><span class="tag-cd">Code</span></p></li>
     </ol>
-    <table class="split">
-      <caption>Who does what</caption>
-      <thead><tr><th scope="col">Step</th><th scope="col">AI</th><th scope="col">Code</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">Viewer profile</th><td data-l="AI">Reads five free-text answers, fills the profile</td><td data-l="Code">Validates every field, drops unknown tags, switches on the family-safe rule</td></tr>
-        <tr><th scope="row">Two shows</th><td data-l="AI">Picks two, writes the reason in the viewer's language</td><td data-l="Code">Removes shows that break the family-safe rule</td></tr>
-        <tr><th scope="row">Cliffhanger score</th><td data-l="AI">Rates each ending 1 to 5, names the open question</td><td data-l="Code">Rule score (emotion cues, threats, questions), then 0.6 x model/5 + 0.4 x rules</td></tr>
-        <tr><th scope="row">Drops</th><td data-l="AI" class="none">Nothing</td><td data-l="Code">Packs 3.5 to 6 minute drops</td></tr>
-        <tr><th scope="row">Teaser</th><td data-l="AI">Writes it around one quoted line</td><td data-l="Code">Checks the line exists in the ending, repairs it if not</td></tr>
-        <tr><th scope="row">Gates and streaks</th><td data-l="AI" class="none">Nothing</td><td data-l="Code">Waits, reminders, streak levels</td></tr>
-      </tbody>
-    </table>
   </section>
 
   <section class="sec" id="results" aria-labelledby="res-h">
-    <h2 id="res-h">What the real run produced</h2>
-    <p class="sec-lede">One run of the pipeline over the 50 episode scripts from the assignment.</p>
+    <h2 id="res-h">The real run</h2>
     <ul class="ledger" id="ledger"></ul>
   </section>
 
   <section class="sec" id="fails" aria-labelledby="fail-h">
     <h2 id="fail-h">Where it fails</h2>
     <ul class="fails">
-      <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2v.3"/></svg><p><b>Gibberish answers still get two generic shows.</b> It should ask again instead.</p></li>
-      <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2v.3"/></svg><p><b>Scores read only the script.</b> A slap the camera holds on scores like a calm line.</p></li>
-      <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2v.3"/></svg><p><b>Teasers lean on stock phrases.</b> Code checks the quoted line, not the line around it.</p></li>
-      <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2v.3"/></svg><p><b>Retention gains are untested on real viewers.</b> This is a concept and a working pipeline, not a measured result.</p></li>
+      <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2v.3"/></svg><p><b>Gibberish answers get two generic shows.</b> It should ask again.</p></li>
+      <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2v.3"/></svg><p><b>Scores read only the script</b>, so they miss camera-held slaps.</p></li>
+      <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2v.3"/></svg><p><b>Teasers lean on stock phrases.</b> Code checks only the quote.</p></li>
+      <li><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5v5.5M12 16.2v.3"/></svg><p><b>Retention gains are untested on real viewers.</b></p></li>
     </ul>
   </section>
 
   <section class="sec" id="more" aria-labelledby="more-h">
     <h2 id="more-h">See the work</h2>
     <ul class="links">
-      <li><a href="https://drive.google.com/drive/folders/1vkTXtYYBvWVO11PqZIXBbWF09t-46oUA?usp=sharing" target="_blank" rel="noopener"><b>Solution doc and raw outputs <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></b><span>The two-page write-up and every unedited model output.</span></a></li>
-      <li><a href="https://github.com/shikharkansal-aria/kuku-daily" target="_blank" rel="noopener"><b>Code <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></b><span>Pipeline, gates, tests. One command reruns it on a new show.</span></a></li>
-      <li><a href="https://kuku-daily.streamlit.app/" target="_blank" rel="noopener"><b>Live lab <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></b><span>Run the real model on your own words or on a new show.</span></a></li>
+      <li><a href="https://drive.google.com/drive/folders/1vkTXtYYBvWVO11PqZIXBbWF09t-46oUA?usp=sharing" target="_blank" rel="noopener" title="The two-page write-up and every unedited model output."><b>Solution doc and raw outputs <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></b></a></li>
+      <li><a href="https://github.com/shikharkansal-aria/kuku-daily" target="_blank" rel="noopener" title="Pipeline, gates, tests. One command reruns it on a new show."><b>Code: one command reruns it <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></b></a></li>
+      <li><a href="https://kuku-daily.streamlit.app/" target="_blank" rel="noopener" title="Run the real model on your own words or on a new show."><b>Live lab: your own words <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg></b></a></li>
     </ul>
   </section>
 </main>
 
 <footer class="foot">
-  <p>Concept prototype by Shikhar Kansal (MS23BTECH11024) for Kuku's AI Generalist assignment. Not an official Kuku product. The demo show is fictional.</p>
+  <p>Concept prototype by Shikhar Kansal (MS23BTECH11024), Kuku AI Generalist assignment. Not an official Kuku product. Fictional demo show.</p>
 </footer>
 
 <script src="data.js"></script>
@@ -193,8 +179,7 @@
       <div class="ib-txt">
         <p class="ib-eye">The problem</p>
         <h3>A new viewer opens Kuku TV and meets about 30 shows.</h3>
-        <p>Onboarding asks one question, the language. Nothing asks what they like.</p>
-        <p>Three scrolls put 25 to 30 posters in front of them to guess from.</p>
+        <p>Onboarding asks only the language. Then three scrolls of 25 to 30 posters to guess from.</p>
       </div>
     </section>
     <section class="ib-card" aria-roledescription="card" aria-label="2 of 4, why it hurts">
@@ -208,8 +193,7 @@
       <div class="ib-txt">
         <p class="ib-eye">Why it hurts</p>
         <h3>They are asked to pay before any story hooks them.</h3>
-        <p>Plans run Rs 199 a month to Rs 1,499 a year. All auto-renew, and the plan screen shows no free trial.</p>
-        <p>Price and billing come up in <span class="ib-pct">20</span>% of 500 Kuku TV English Play Store reviews.</p>
+        <p>Every plan auto-renews, with no free trial shown. Price and billing come up in <span class="ib-pct">20</span>% of 500 Kuku TV English Play Store reviews.</p>
       </div>
     </section>
     <section class="ib-card" aria-roledescription="card" aria-label="3 of 4, the fix">
@@ -223,7 +207,7 @@
       <div class="ib-txt">
         <p class="ib-eye">The fix: Kuku Daily</p>
         <h3>Two shows, one short drop a day, and a timer that brings you back.</h3>
-        <p>Five questions in chat pick 2 shows that fit. A drop of about 4 minutes ends on a cliffhanger, and the next one unlocks at your free time.</p>
+        <p>A drop of about 4 minutes ends on a cliffhanger, and the next unlocks at your free time.</p>
         <p>Subscribers wait less. Nobody binges.</p>
       </div>
     </section>
@@ -237,7 +221,7 @@
       <div class="ib-txt">
         <p class="ib-eye">How to use this page</p>
         <h3>Watch one viewer's first 3 days, or drive it yourself.</h3>
-        <p>Every line on the phone is real AI output on a fictional demo show. Behind the scenes shows what the AI did and what code did.</p>
+        <p>Every line on the phone is real AI output, on a fictional demo show. Behind the scenes splits AI from code.</p>
         <div class="ib-cta">
           <button type="button" class="btn primary" data-start="auto"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor" stroke="none"/></svg>Play the first 3 days <small>75 s</small></button>
           <button type="button" class="btn" data-start="manual">Try it yourself</button>

@@ -309,7 +309,7 @@
       const n = i + 1, cur = n === S.beat, done = n < S.beat || (cur && S.done);
       return `<li><button type="button" data-beat="${n}" class="${done ? "done" : ""}"${cur ? ' aria-current="step"' : ""}><span class="n">${n}</span>${b.title}</button></li>`;
     }).join("");
-    $("#mode-note").textContent = S.mode === "auto" ? "Autoplay: the first 3 days, about 75 seconds" : S.mode === "manual" ? "Manual: you drive, Next moves on" : "";
+    $("#mode-note").textContent = S.mode === "auto" ? "Autoplay, about 75 seconds" : S.mode === "manual" ? "Manual: Next moves on" : "";
     const nav = $("#nav"), btsBtn = `<button type="button" class="btn sm bts-open" aria-controls="bts" aria-expanded="false">${ico("layers")}Behind the scenes</button>`;
     if (S.mode === "auto") {
       nav.innerHTML = `<button type="button" class="btn sm primary" data-act="pause" id="pause" aria-pressed="${S.paused}">${S.paused ? ico("play") + "Resume" : ico("pause") + "Pause"}</button><button type="button" class="btn sm" data-act="skip" id="skip">${ico("skip")}Skip</button>${btsBtn}`;
@@ -349,36 +349,36 @@
       case 1: return { ai: "Nothing yet. The five questions are fixed text in the viewer's language.",
         code: "Sends the questions and stores the answers word for word. No forms or dropdowns: the viewer can type anything.",
         label: `questions.${lang} + viewers.${lang}.input`, json: { questions: KD.questions[lang], ...v.input } };
-      case 2: return { ai: `One Groq model call reads the five answers and returns a profile with ${Object.keys(p).length} fields, including a one-line summary in the viewer's language.`,
-        code: `Checks the free slots are real <code>HH:MM</code> times before any reminder uses them. <code>watch_with</code> is "${esc(p.watch_with)}", so the family-safe rule is <b>${p.watch_with === "family" ? "on" : "off"}</b>. The model cannot turn it off.`,
+      case 2: return { ai: `One Groq call reads the five answers and returns ${Object.keys(p).length} profile fields, with a one-line summary in ${W().lang}.`,
+        code: `Checks slots are real <code>HH:MM</code> times; <code>watch_with: "${esc(p.watch_with)}"</code> sets the family-safe rule <b>${p.watch_with === "family" ? "on" : "off"}</b>, and the model cannot change it.`,
         label: `viewers.${lang}.persona`, json: p };
       case 3: {
         const all = [KD.show, ...KD.catalog], out = all.filter((s) => !s.family_safe);
         return { ai: "Picks two shows from the list it is given and writes one reason for each, in the viewer's language.",
-          code: p.watch_with === "family" ? `Family-safe rule on: removes ${out.length} shows (${out.map((s) => esc(s.title)).join(", ")}), so the picks can only come from the other ${all.length - out.length}. Only a show with scripts can start a drop.`
-            : `No family filter for this viewer (<code>watch_with: "${esc(p.watch_with)}"</code>), so all ${all.length} shows stay in. Only a show with scripts can start a drop.`,
+          code: p.watch_with === "family" ? `Family-safe rule on: removes <span class="tip" title="${out.map((s) => esc(s.title)).join(", ")}">${out.length} shows</span>, so picks come from the other ${all.length - out.length}; only scripted shows start drops.`
+            : `No family filter (<code>watch_with: "${esc(p.watch_with)}"</code>), so all ${all.length} shows stay in; only scripted shows start drops.`,
           label: `viewers.${lang}.match`, json: v.match };
       }
       case 4: {
         const sc = KD.drops[lang].episode_scores.filter((e) => d.episodes.includes(e.ep)), last = sc[sc.length - 1], ep = foundIn(d);
-        return { ai: `Read the last 20 seconds of episodes ${d.episodes.join(" and ")} and rated each ending 1 to 5 (episode ${last.ep}: ${last.llm} of 5). Named the open question and wrote the teaser.`,
-          code: `Rule score for the same ending: ${last.rule}. Combined: 0.6 x ${last.llm}/5 + 0.4 x ${last.rule} = <b>${last.combined}</b>. Packed episodes ${d.episodes.join(" and ")} into ${d.seconds} s (target 3.5 to 6 min). Found the quoted line in episode ${ep}'s ending, so <code>grounded: ${d.grounded}</code>, <code>repaired: ${d.repaired}</code>.`,
+        return { ai: `Rated each ending 1 to 5 (episode ${last.ep}: ${last.llm}), named the open question and wrote the teaser.`,
+          code: `Rule score ${last.rule}, combined <b>0.6 x ${last.llm}/5 + 0.4 x ${last.rule} = ${last.combined}</b>; quote found in episode ${ep}, <code>repaired: ${d.repaired}</code>.`,
           label: `drops.${lang}.drops[0] + episode_scores + episodes[${d.episodes[d.episodes.length - 1] - 1}].tail`,
           json: { drop: d, episode_scores: sc, ending: KD.episodes[d.episodes[d.episodes.length - 1] - 1].tail } };
       }
       case 5: {
         const g = gcalc(), cfg = G.config;
-        return { ai: "Nothing. Waits, reminders and streaks are plain code, so they are predictable and testable. <code>gates.js</code> is a line-for-line port of <code>tools/gates.py</code>, and a test checks both give the same output.",
-          code: `Wait for <code>${S.tier}</code> at streak ${S.streak} (level ${g.level}): <b>${g.wait} h</b>. Unlock = watched + wait = <code>${G.iso(g.unlock)}</code>. Reminder = first free slot (${p.slots.join(", ")}) at or after unlock = <code>${G.iso(g.remind)}</code>. Back within ${cfg.grace_h} h of unlock: streak +1. Later: down one level.`,
+        return { ai: "Nothing: waits, reminders and streaks are code; <code>gates.js</code> ports <code>tools/gates.py</code> and a test checks they match.",
+          code: `<code>${S.tier}</code> at streak ${S.streak}: <b>${g.wait} h</b> wait, reminder at the next free slot, streak +1 if back within ${cfg.grace_h} h.`,
           label: "gates + KDGates.simulate(...)", sim: G.simulate(S.tier, p.slots, DROPS().length, 3),
           json: { gates: KD.gates, now: { tier: S.tier, streak: S.streak, watched_at: G.iso(S.watched), next_unlock: G.iso(g.unlock), reminder: G.iso(g.remind) } } };
       }
-      default: return { ai: "Two jobs only: read the viewer, and read the scripts.", code: "Everything that must be predictable: the family-safe filter, drop sizes, quote checks, timers and streaks.", label: "show", json: KD.show };
+      default: return { ai: "Two jobs: read the viewer and the scripts.", code: "Everything predictable: family-safe filter, drop sizes, quote checks, timers, streaks.", label: "show", json: KD.show };
     }
   }
   function renderBTS() {
     const x = btsData();
-    $("#bts-beat").textContent = S.beat ? `Step ${S.beat}: ${BEATS[S.beat].title}` : "Each step shows its share here";
+    $("#bts-beat").textContent = S.beat ? `Step ${S.beat}: ${BEATS[S.beat].title}` : "Step by step";
     const sim = x.sim ? `<details open><summary>First 3 days <code>KDGates.simulate</code></summary><table class="sim"><thead><tr><th>Day</th><th>Watched</th><th>Streak</th><th>Wait</th><th>Reminder</th></tr></thead><tbody>${x.sim.map((r) => `<tr><td>${r.session}</td><td>${r.watched_at.slice(5).replace("T", " ")}</td><td>${r.streak}</td><td>${r.wait_h} h</td><td>${r.reminder.slice(5).replace("T", " ")}</td></tr>`).join("")}</tbody></table></details>` : "";
     $("#bts-body").innerHTML = `<section class="bt ai"><h3>What the AI did</h3><p>${x.ai}</p></section><section class="bt cd"><h3>What code did</h3><p>${x.code}</p></section>${sim}<details class="raw"${S.jsonOpen ? " open" : ""}><summary>Raw output <code>${esc(x.label)}</code></summary><pre><code>${hl(x.json)}</code></pre></details>`;
     $("#bts-body .raw").addEventListener("toggle", (e) => { S.jsonOpen = e.target.open; });
@@ -417,7 +417,7 @@
   function takeOver() { if (S.mode === "auto") { S.token++; S.mode = "manual"; S.done = true; if (S.paused) setPaused(false); renderRail(); } }
   function endAuto() {
     S.mode = "ended"; renderRail();
-    cap("That was the loop", `Five questions, two shows, a 4 minute drop, a wait, and a reminder at ${W().her} own hour. Switch the language to meet the other viewer, or click through it yourself.`);
+    cap("That was the loop", `Five questions, two shows, a 4 minute drop and a reminder at ${W().her} hour; <b>switch language</b> to meet the other viewer.`);
   }
   function setPaused(p) {
     S.paused = p;
@@ -438,7 +438,7 @@
     $("#screen").classList.remove("cine");
     const picks = V().match.picks;
     const el = scene("s-splash", `<p class="splash-mark">Kuku <span>Daily</span></p><p class="splash-t">${L().tagline}</p><div class="splash-art">${picks.map((p) => `<div>${poster(p)}</div>`).join("")}</div><button type="button" class="pbtn" data-act="manual">${L().start}${ico("next")}</button>`);
-    cap(BEATS[0].title, "Press <b>Play the first 3 days</b> to watch one viewer's first days in about 75 seconds, or step through it yourself. The phone is the product. The panel on the right shows what the AI did and what plain code did, with the raw output.");
+    cap(BEATS[0].title, "Watch one viewer's first 3 days in <b>75 seconds</b>, or step through yourself.");
     return el;
   }
 
@@ -446,7 +446,7 @@
   async function beatChat() {
     setStreak(0, false); setClock(WATCHED); S.deviated = false;
     const qs = KD.questions[S.lang], ans = V().input.answers, auto = S.mode === "auto";
-    cap(BEATS[1].title, `Meet the sample viewer: ${W().long}, answering in ${W().lang}. Kuku TV asks a new viewer one thing, the language. Kuku Daily asks five plain questions and takes free text.${auto ? "" : " Tap a chip to answer. The first one is the sample viewer's real answer."}`);
+    cap(BEATS[1].title, `Meet <b>${W().long}</b>: ${auto ? `five free-text questions in ${W().lang}, while Kuku TV asks only the language.` : `tap a chip to answer; the first is ${W().her} real one.`}`);
     const el = scene("s-chat", `<div class="chat" role="log" aria-label="Onboarding chat"></div>${auto ? `<div class="composer" aria-hidden="true"><span class="field"><span class="typed"></span><span class="ph">${L().type}</span><span class="caret"></span></span><span class="send">${ico("next")}</span></div>` : ""}<div class="chips" role="group" aria-label="${L().pick}"></div>`);
     const log = $(".chat", el);
     await bot(log, L().hello, true);
@@ -505,7 +505,7 @@
   // ---------- Beat 2: the AI reads you ----------
   async function beatProfile() {
     const p = P(), l = L(), fam = p.watch_with === "family";
-    cap(BEATS[2].title, `One model call turns the five answers into a profile: who ${W().she} is, when ${W().she} is free, what ${W().she} likes, who ${W().she} watches with, minutes a day.${S.deviated ? " You picked some answers of your own. This profile is the real model output for the sample answers; the live lab runs the model on yours." : ""}`);
+    cap(BEATS[2].title, S.deviated ? "You changed some answers, but this is <b>the real model output</b> for the sample ones; the live lab runs yours." : `<b>One model call</b> turns five answers into a profile: when ${W().she} is free, what ${W().she} likes, who ${W().she} watches with.`);
     const pills = (a) => a.map((x) => `<span class="pill">${esc(x)}</span>`).join("");
     const age = p.age_band.replace("-", " to ");
     const el = scene("s-prof", `
@@ -542,7 +542,7 @@
       shield.style.opacity = "";
       await reveal(shield);
       await anim(shield, [{ opacity: 0, transform: "scale(1.5) rotate(-6deg)" }, { opacity: 1, transform: "scale(.96) rotate(-2deg)", offset: .7 }, { opacity: 1, transform: "rotate(-2deg)" }], { d: 560, e: EASE_IO });
-      cap(BEATS[2].title, `${W().she[0].toUpperCase() + W().she.slice(1)} watches with family, so a hard rule switches on: only family-safe shows. Code enforces it, not the model.`);
+      cap(BEATS[2].title, `${W().she[0].toUpperCase() + W().she.slice(1)} watches with family, so <b>code</b> turns on a family-safe rule the model cannot turn off.`);
     }
     await wait(1700);
   }
@@ -551,7 +551,7 @@
   async function beatShows() {
     const l = L(), picks = V().match.picks, fam = P().watch_with === "family", all = [KD.show, ...KD.catalog], auto = S.mode === "auto";
     const ids = picks.map((p) => p.id), outN = all.filter((s) => !s.family_safe).length;
-    cap(BEATS[3].title, `All ${all.length} shows in the demo catalog: ${KD.catalog.length} public shows and one fictional demo show with scripts.`);
+    cap(BEATS[3].title, `<b>${all.length} shows</b> in the demo catalog: ${KD.catalog.length} public ones and one fictional demo show with scripts.`);
     const el = scene("s-shows", `<p class="sh-h">${l.all(all.length)}</p><p class="sh-s" aria-live="polite"></p>
       <div class="minis">${all.map((s) => `<div class="mini" data-id="${s.id}" data-safe="${s.family_safe}">${poster(s)}<span class="no">${ico("shieldx")}</span></div>`).join("")}</div>
       <div class="picks" hidden>${picks.map((p) => `<article class="pick" data-id="${p.id}">${poster(p)}<div><h4>${esc(p.title)}</h4><p class="pick-pl">${esc(p.platform)}</p><p class="tags">${p.tags.slice(0, 3).map((t) => `<span>${esc(t)}</span>`).join("")}</p><p class="reason"></p>${p.has_scripts ? `<button type="button" class="pbtn" data-act="watch">${ico("play")}${l.watch}</button>` : `<p class="na">${l.noScript}</p>`}</div></article>`).join("")}</div>`);
@@ -561,7 +561,7 @@
     if (fam) {
       $(".sh-s", el).textContent = l.out(outN);
       minis.filter((m) => m.dataset.safe === "false").forEach((m) => { m.classList.add("out"); fx(m, [{ opacity: 1, filter: "grayscale(0)" }, { opacity: .35, filter: "grayscale(1)" }], { d: 500, fill: "forwards" }); });
-      cap(BEATS[3].title, `Code removes the ${outN} shows not marked family-safe. The model cannot end up with them.`);
+      cap(BEATS[3].title, `<b>Code</b> removes the ${outN} shows not marked family-safe, so the model cannot pick them.`);
       await wait(1700);
     }
     minis.forEach((m) => { if (ids.includes(m.dataset.id)) fx(m.querySelector(".poster"), [{ boxShadow: "0 0 0 0 rgba(242,169,59,0)" }, { boxShadow: "0 0 0 3px rgba(242,169,59,1)" }], { d: 400, fill: "forwards" }); });
@@ -575,7 +575,7 @@
     const box = $(".picks", el); box.hidden = false;
     const cards = $$(".pick", box);
     cards.forEach((c, i) => fx(c, [{ opacity: 0, transform: "translateY(24px) scale(.96)" }, { opacity: 1, transform: "none" }], { d: 600, delay: i * 160, fill: "backwards" }));
-    cap(BEATS[3].title, `The model picks two and explains each pick in the viewer's language. Only The Lost Haveli has scripts in this demo, so that is the one to start.`);
+    cap(BEATS[3].title, `The model picks two with reasons in ${W().lang}; only <b>The Lost Haveli</b> has scripts here, so start there.`);
     await wait(500);
     await Promise.all(cards.map((c, i) => typeText($(".reason", c), picks[i].reason, 90)));
     if (auto) {
@@ -614,7 +614,7 @@
   async function beatDrop() {
     const l = L(), d = DROPS()[0], lastN = d.episodes[d.episodes.length - 1], ep = KD.episodes[lastN - 1], mins = Math.round(d.seconds / 60), epF = foundIn(d);
     const firstLen = KD.episodes[d.episodes[0] - 1].seconds;
-    cap(BEATS[4].title, `Drop 1 packs episodes ${d.episodes.join(" and ")} into about ${mins} minutes and stops on a cliffhanger. One drop a day, not a feed.`);
+    cap(BEATS[4].title, `<b>Drop 1</b> packs episodes ${d.episodes.join(" and ")} into about ${mins} minutes and stops on a cliffhanger.`);
     const [tl1, tl2] = d.teaser.split("\n");
     const q = esc(tl2 || ""), ql = esc(d.quoted_line), qHtml = q.includes(ql) ? q.replace(ql, `<mark>${ql}</mark>`) : q;
     const el = scene("s-drop", `
@@ -644,7 +644,7 @@
       eps[0].style.transform = `scaleX(${Math.min(1, t / firstLen)})`;
       if (eps[1]) eps[1].style.transform = `scaleX(${Math.max(0, Math.min(endAt, (t - firstLen) / ep.seconds))})`;
     }, sine);
-    cap(BEATS[4].title, `Jump to the ending: the last 20 seconds of episode ${lastN}, the exact script lines the model scored.`);
+    cap(BEATS[4].title, `Jump to the ending: <b>the last 20 seconds</b> of episode ${lastN}, the exact lines the model scored.`);
     await anim($(".tcard", el), [{ opacity: 1 }, { opacity: 0, transform: "translateY(-10px)" }], { d: 360, e: EASE_IN, fill: "forwards" });
     fx($(".hud", el), [{ opacity: 0 }, { opacity: 1 }], { d: 400, fill: "forwards" });
     for (const ln of ep.tail) {
@@ -667,7 +667,7 @@
     await anim(meter, [{ opacity: 0, transform: "translateY(-12px)" }, { opacity: 1, transform: "none" }], { d: 480 });
     fx($(".m-bar i", el), [{ transform: "scaleX(0)" }, { transform: `scaleX(${d.cliff_score})` }], { d: 1400 });
     await tween(1400, (p) => { $(".m-v", el).textContent = (d.cliff_score * p).toFixed(2); });
-    cap(BEATS[4].title, `Cliffhanger score ${d.cliff_score}: the model rated this ending ${d.llm_score} out of 5, and rules on the script gave ${d.rule_score.toFixed(2)}. The drop is cut where the score is high.`);
+    cap(BEATS[4].title, `<b>Cliffhanger score ${d.cliff_score}</b>: model ${d.llm_score} of 5, script rules ${d.rule_score.toFixed(2)}, and code cuts drops where it runs high.`);
     await wait(1900);
     // Freeze frame
     const film = $(".film", el), bg = $(".bg", el);
@@ -685,7 +685,7 @@
     fx($(".t-q mark", el), [{ textDecorationColor: "rgba(242,169,59,0)" }, { textDecorationColor: "rgba(242,169,59,1)" }], { d: 700, delay: 300 });
     fx($(".badge", el), [{ opacity: 0, transform: "scale(.8)" }, { opacity: 1, transform: "none" }], { d: 420, delay: 500 });
     syncListen();
-    cap(BEATS[4].title, `The model wrote a teaser that quotes one line. Code checked that the line really is in episode ${epF}'s ending. ${d.repaired ? "This one needed a repair." : "This one passed as written."}`);
+    cap(BEATS[4].title, `The model's teaser quotes one line, and <b>code</b> found it in episode ${epF}'s ending; this one ${d.repaired ? "needed a repair" : "passed as written"}.`);
     await wait(2600);
   }
   function syncListen() {
@@ -758,7 +758,7 @@
     const el = scene("s-gate", gateHTML());
     renderGate(true);
     const g = gcalc();
-    cap(BEATS[5].title, `Drop 2 unlocks after a ${g.wait} hour wait, ${at(g.unlock)}. The reminder goes out at the first free slot ${W().she} gave after that: ${at(g.remind)}.`);
+    cap(BEATS[5].title, `<b>Drop 2</b> unlocks after ${g.wait} hours, ${at(g.unlock)}, with a reminder at ${W().her} next free slot, ${at(g.remind)}.`);
     $$(".lock, .ladder, .demo", el).forEach((c, i) => fx(c, [{ opacity: 0, transform: "translateY(16px)" }, { opacity: 1, transform: "none" }], { d: 560, delay: 150 + i * 110, fill: "backwards" }));
     await wait(2800);
     if (S.mode !== "auto") return;
@@ -776,7 +776,7 @@
     if (!nextDrops().length) return;
     const l = L(), g = gcalc(), from = S.now, total = g.wait * 3600e3, nx = nextDrops();
     busy(true);
-    cap("Fast-forward", `The clock jumps ahead. Drop ${joinN(nx)} unlocks ${at(g.unlock, from)}, and the phone buzzes at ${W().her} free slot, ${at(g.remind, from)}, with ${S.lang === "hinglish" ? "the first line of the teaser" : "the open question from the last episode"}.`);
+    cap("Fast-forward", `<b>Drop ${joinN(nx)}</b> opens ${at(g.unlock, from)}; ${W().her} phone buzzes ${at(g.remind, from)} with ${S.lang === "hinglish" ? "the teaser's first line" : "the open question"}.`);
     const hands = $$(".simclock .hh, .simclock .mh");
     hands.forEach((h, i) => fx(h, [{ transform: "rotate(0)" }, { transform: "rotate(360deg)" }], { d: i ? 500 : 1500, it: Infinity, e: "linear", fill: "none" }));
     let unlocked = false;
@@ -802,7 +802,7 @@
     $(".lock-w").innerHTML = `<span class="pbtn" aria-hidden="true">${ico("play")}${l.play}</span>`;
     fx($(".lock"), [{ transform: "scale(.97)" }, { transform: "none" }], { d: 500, fill: "none" });
     setStreak(ns, true);
-    cap("Back on time", `${W().she[0].toUpperCase() + W().she.slice(1)} came back within ${G.config.grace_h} hours of the unlock, so the streak goes from 0 to ${ns}. Day 2 starts with drop ${joinN(nx)}.`);
+    cap("Back on time", `${W().she[0].toUpperCase() + W().she.slice(1)} came back within ${G.config.grace_h} hours of the unlock: streak <b>0 to ${ns}</b>, and day 2 starts with drop ${joinN(nx)}.`);
     await wait(900);
     S.busy = false;
     renderGate(true);
@@ -815,7 +815,7 @@
     renderGate(true);
     const g = gcalc();
     fx($(".rung.on .rung-b"), [{ transform: "scaleY(.6)", transformOrigin: "50% 100%" }, { transform: "none", transformOrigin: "50% 100%" }], { d: 600, fill: "none" });
-    cap("A 7-day streak", `Seven days in a row moves ${W().her} up the ladder. The wait drops from ${before} hours to ${g.wait}, so the next drop is ready ${at(g.unlock)}.`);
+    cap("A 7-day streak", `Seven straight days cut ${W().her} wait from ${before} to <b>${g.wait} hours</b>; the next drop is ready ${at(g.unlock)}.`);
     await wait(400);
     S.busy = false; renderGate(false);
   }
@@ -826,11 +826,9 @@
     S.watched = back; S.now = back; S.streak = ns;
     setStreak(ns, true);
     renderGate(true);
-    const lvl = G.level(ns);
-    const backL = `${WD.english[back.getUTCDay()]}, ${h12(back)} ${ampm(back)}`;
     cap("Skip 2 days", G.level(from) > 0
-      ? `${W().she[0].toUpperCase() + W().she.slice(1)} misses two days and comes back ${backL}. The streak falls one level, from ${from} to ${ns}${ns > 0 ? ", not to zero" : ""}. The wait goes back to ${G.waitH(S.tier, ns)} hours.`
-      : `Missing two days at streak ${from} puts it at ${ns}. That is already the bottom rung (level ${lvl}), so there is nothing lower to fall to. Try a 7-day streak first, then skip.`);
+      ? `Two missed days drop the streak one level, <b>${from} to ${ns}</b>${ns > 0 ? ", not to zero" : ""}, and the wait returns to ${G.waitH(S.tier, ns)} hours.`
+      : `Two missed days at streak ${from} leave it at <b>${ns}</b>, already the bottom rung, so try a 7-day streak first.`);
     await wait(400);
     S.busy = false; renderGate(false);
   }
@@ -840,8 +838,8 @@
     $$(".rung-b").forEach((b, i) => fx(b, [{ opacity: .3, transform: "translateY(6px)" }, { opacity: 1, transform: "none" }], { d: 420, delay: i * 70, fill: "none" }));
     const w = G.config.tiers[t];
     cap(t === "subscriber" ? "Subscriber" : "Free", t === "subscriber"
-      ? `Subscribers get ${w.drops_per_unlock} drops per unlock and shorter waits: ${w.waits_h.join(", ")} hours. Free viewers still get every drop, just slower.`
-      : `Free viewers get ${w.drops_per_unlock} drop per unlock and wait ${w.waits_h.join(", ")} hours as the streak grows.`);
+      ? `Subscribers get <b>${w.drops_per_unlock} drops per unlock</b> and waits of ${w.waits_h.join(", ")} hours; free viewers get every drop, slower.`
+      : `Free viewers get <b>${w.drops_per_unlock} drop per unlock</b> and wait ${w.waits_h.join(", ")} hours as the streak grows.`);
     await wait(0);
   }
 
@@ -850,15 +848,15 @@
   // ---------- Results ----------
   function buildLedger() {
     const r = KD.results;
-    const rows = [
-      [r.drops, "", `<b>drops</b> packed from ${r.episodes} episodes`],
-      [r.drops_in_range, ` of ${r.drops}`, `drops land <b>between 4 and 6 minutes</b>`],
-      [r.teasers_grounded, ` of ${r.drops}`, `teasers <b>quote a real line</b> from the episode. Code repaired ${r.teasers_repaired} of them.`],
-      [r.within_one_point, ` of ${r.episodes}`, `endings scored <b>within 1 point</b> by a second model (Gemini). Spearman ${r.spearman}.`],
-      [r.cents_per_show, " US cents", `<b>per 50-episode show</b>, both languages, at Groq's list price.`],
-      [r.usd_per_million_viewers, "", `<b>a month in model calls</b> at 1 million new viewers a month, about.`],
+    const rows = [  // [value, suffix, label, note, tooltip]
+      [r.drops, "", `<b>drops</b> from ${r.episodes} episodes`],
+      [r.drops_in_range, ` of ${r.drops}`, `run <b>4 to 6 minutes</b>`, "", "Drops that land between 4 and 6 minutes."],
+      [r.teasers_grounded, ` of ${r.drops}`, `teasers <b>quote a real line</b>`, `${r.teasers_repaired} repaired`, `Every teaser quotes a real line from the episode. Code repaired ${r.teasers_repaired} of them.`],
+      [r.within_one_point, ` of ${r.episodes}`, `within <b>1 point</b> of Gemini`, `Spearman ${r.spearman}`, "Endings scored within 1 point by a second model (Gemini)."],
+      [r.cents_per_show, " US cents", `<b>per 50-episode show</b>, both languages`, "", "Both languages, at Groq's list price."],
+      [r.usd_per_million_viewers, "/month", `<b>model calls</b>, 1M new viewers`, "", "About $800 a month in model calls at 1 million new viewers a month."],
     ];
-    $("#ledger").innerHTML = rows.map(([v, suf, txt], i) => `<li><span class="v">${i === 5 ? "$" : ""}<span data-to="${v}">${v}</span><small>${suf}</small></span><p>${txt}</p></li>`).join("");
+    $("#ledger").innerHTML = rows.map(([v, suf, txt, note, tip], i) => `<li${tip ? ` title="${tip}"` : ""}><span class="v">${i === 5 ? "$" : ""}<span data-to="${v}">${v}</span><small>${suf}</small></span><p>${txt}${note ? `<small class="note">${note}</small>` : ""}</p></li>`).join("");
     const io = new IntersectionObserver((es) => es.forEach((e) => {
       if (!e.isIntersecting) return;
       io.disconnect();
